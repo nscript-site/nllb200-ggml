@@ -1,3 +1,13 @@
+本项目改自 [seamless_communication](https://github.com/facebookresearch/seamless_communication)，保留了其中的 T2TT 部分，可以通过 visual studio 打开 CMakeLists.txt 文件直接编译。
+
+bugs:
+
+- [ ] 中文和其它语言互译会出乱码，英文与法文等拉丁语系得互译没问题
+
+todo: 
+
+- [ ] 封装成动态链接库
+
 # unity.cpp
 
 ## Introduction
@@ -22,12 +32,6 @@ make -j4 unity # Interactive Console
 For more build commands see [Makefile](Makefile). 
 
 ## CLI usage
-### S2TT
-Command to launch an interactive console for S2TT & ASR, note that the model already includes vocabulary needed to detokenize. 
-```
-OPENBLAS_NUM_THREADS=8 ./bin/unity --model seamlessM4T_medium.ggml
-```
-In the console, enter "wav_file tgt_lang" - the path of local waveform file and target language, separated by space. Note that the first run would include some “warm up” time so could be slow. 
 
 ### T2TT
 Launching command:
@@ -59,7 +63,4 @@ We also utilize ggml python bindings for better dev experience. For examples of 
 ## [Optional]Dependencies
 ### OpenBLAS
 We strongly suggest building with OpenBLAS, as we've seen 8x speedup on test machine. 
-
-### libsndfile
-This is needed only for the console to load waveform, but not the library.
 
